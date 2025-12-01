@@ -625,7 +625,7 @@ def build_task(
     Returns:
         TaskConfig: The created task configuration
     """
-    task = TaskConfig(
+    return TaskConfig(
         db=db,
         db_config=db_config,
         db_case_config=db_case_config,
@@ -646,7 +646,6 @@ def build_task(
             parameters["search_concurrent"],
         ),
     )
-    return task
 
 
 def run(

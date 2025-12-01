@@ -163,8 +163,8 @@ class ElasticCloudHNSWTypedDict(CommonTypedDict, ElasticCloudTypedDict):
 @cli.command()
 @click_parameter_decorators_from_typed_dict(ElasticCloudHNSWTypedDict)
 def ElasticCloudHNSW(**parameters: Unpack[ElasticCloudHNSWTypedDict]):
-    from .config import ESElementType, ElasticCloudConfig, ElasticCloudIndexConfig
     from ..api import IndexType
+    from .config import ElasticCloudConfig, ElasticCloudIndexConfig, ESElementType
 
     run(
         db=DBTYPE,
@@ -195,8 +195,8 @@ def ElasticCloudHNSW(**parameters: Unpack[ElasticCloudHNSWTypedDict]):
 @cli.command()
 @click_parameter_decorators_from_typed_dict(ElasticCloudHNSWTypedDict)
 def ElasticCloudHNSWInt8(**parameters: Unpack[ElasticCloudHNSWTypedDict]):
-    from .config import ESElementType, ElasticCloudConfig, ElasticCloudIndexConfig
     from ..api import IndexType
+    from .config import ElasticCloudConfig, ElasticCloudIndexConfig, ESElementType
 
     run(
         db=DBTYPE,
@@ -227,8 +227,8 @@ def ElasticCloudHNSWInt8(**parameters: Unpack[ElasticCloudHNSWTypedDict]):
 @cli.command()
 @click_parameter_decorators_from_typed_dict(ElasticCloudHNSWTypedDict)
 def ElasticCloudHNSWInt4(**parameters: Unpack[ElasticCloudHNSWTypedDict]):
-    from .config import ESElementType, ElasticCloudConfig, ElasticCloudIndexConfig
     from ..api import IndexType
+    from .config import ElasticCloudConfig, ElasticCloudIndexConfig, ESElementType
 
     run(
         db=DBTYPE,
@@ -259,8 +259,8 @@ def ElasticCloudHNSWInt4(**parameters: Unpack[ElasticCloudHNSWTypedDict]):
 @cli.command()
 @click_parameter_decorators_from_typed_dict(ElasticCloudHNSWTypedDict)
 def ElasticCloudHNSWBBQ(**parameters: Unpack[ElasticCloudHNSWTypedDict]):
-    from .config import ESElementType, ElasticCloudConfig, ElasticCloudIndexConfig
     from ..api import IndexType
+    from .config import ElasticCloudConfig, ElasticCloudIndexConfig, ESElementType
 
     run(
         db=DBTYPE,
@@ -286,4 +286,3 @@ def ElasticCloudHNSWBBQ(**parameters: Unpack[ElasticCloudHNSWTypedDict]):
         ),
         **parameters,
     )
-
