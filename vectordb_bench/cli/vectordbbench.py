@@ -1,6 +1,7 @@
 from ..backend.clients.alisql.cli import AliSQLHNSW
 from ..backend.clients.alloydb.cli import AlloyDBScaNN
 from ..backend.clients.aws_opensearch.cli import AWSOpenSearch
+from ..backend.clients.chroma.cli import Chroma
 from ..backend.clients.clickhouse.cli import Clickhouse
 from ..backend.clients.cockroachdb.cli import CockroachDB as CockroachDBCli
 from ..backend.clients.doris.cli import Doris
@@ -28,9 +29,11 @@ from ..backend.clients.s3_vectors.cli import S3Vectors
 from ..backend.clients.tencent_elasticsearch.cli import TencentElasticsearch
 from ..backend.clients.test.cli import Test
 from ..backend.clients.tidb.cli import TiDB
+from ..backend.clients.turbopuffer.cli import TurboPuffer
 from ..backend.clients.vespa.cli import Vespa
 from ..backend.clients.weaviate_cloud.cli import Weaviate
 from ..backend.clients.zilliz_cloud.cli import ZillizAutoIndex
+from ..backend.clients.zvec.cli import Zvec
 from .batch_cli import BatchCli
 from .cli import cli
 
@@ -68,6 +71,9 @@ cli.add_command(S3Vectors)
 cli.add_command(TencentElasticsearch)
 cli.add_command(AliSQLHNSW)
 cli.add_command(Doris)
+cli.add_command(TurboPuffer)
+cli.add_command(Chroma)
+cli.add_command(Zvec)
 
 
 if __name__ == "__main__":

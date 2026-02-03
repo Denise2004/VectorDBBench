@@ -55,7 +55,8 @@ class DB(Enum):
     TencentElasticsearch = "TencentElasticsearch"
     AliSQL = "AlibabaCloudRDSMySQL"
     Doris = "Doris"
-    TurboPuffer = "TurpoBuffer"
+    TurboPuffer = "TurboPuffer"
+    Zvec = "Zvec"
 
     @property
     def init_cls(self) -> type[VectorDB]:  # noqa: PLR0911, PLR0912, C901, PLR0915
@@ -227,6 +228,11 @@ class DB(Enum):
             from .alisql.alisql import AliSQL
 
             return AliSQL
+
+        if self == DB.Zvec:
+            from .zvec.zvec import Zvec
+
+            return Zvec
 
         msg = f"Unknown DB: {self.name}"
         raise ValueError(msg)
@@ -402,6 +408,11 @@ class DB(Enum):
 
             return AliSQLConfig
 
+        if self == DB.Zvec:
+            from .zvec.config import ZvecConfig
+
+            return ZvecConfig
+
         msg = f"Unknown DB: {self.name}"
         raise ValueError(msg)
 
@@ -533,6 +544,11 @@ class DB(Enum):
 
             return HologresIndexConfig
 
+        if self == DB.Zvec:
+            from .zvec.config import ZvecHNSWIndexConfig
+
+            return ZvecHNSWIndexConfig
+
         if self == DB.TencentElasticsearch:
             from .tencent_elasticsearch.config import TencentElasticsearchIndexConfig
 
@@ -542,16 +558,23 @@ class DB(Enum):
             from .alisql.alisql import AliSQLIndexConfig
 
             return AliSQLIndexConfig
+
         if self == DB.Doris:
             from .doris.config import DorisCaseConfig
 
             return DorisCaseConfig
+
         if self == DB.TurboPuffer:
             from .turbopuffer.config import TurboPufferIndexConfig
 
             return TurboPufferIndexConfig
 
-        # DB.Pinecone, DB.Chroma, DB.Redis
+        if self == DB.Chroma:
+            from .chroma.config import ChromaIndexConfig
+
+            return ChromaIndexConfig
+
+        # DB.Pinecone, DB.Redis
         return EmptyDBCaseConfig
 
 
